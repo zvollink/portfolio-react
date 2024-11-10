@@ -1,0 +1,884 @@
+/**
+ * Styles for the portfolio site.
+ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+}
+
+h2 {
+  margin: 0;
+  font-size: 47px;
+}
+
+h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.emphasize {
+  color: #3bbaec;
+}
+
+#intro {
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Nunito", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: black;
+  margin: 0 auto;
+}
+
+.dark-mode #intro {
+  background-color: #1c1c1c;
+  color: white;
+}
+
+#intro h2 {
+  transform: rotate(-5deg);
+}
+
+#intro .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 677px;
+  min-width: 560px;
+}
+
+#intro .content p {
+  font-size: 16px;
+  color: #8c8c8c;
+}
+
+#intro .content p .bold {
+  font-size: 17px;
+  color: #3bbaec;
+}
+
+#intro i {
+  font-size: 36px;
+  color: black;
+  margin: 0 15px;
+  transition: 0.2s all;
+}
+
+#intro i.fa-folder-closed,
+#intro i.fa-folder-open {
+  width: 36px;
+}
+
+.dark-mode #intro i {
+  color: #8c8c8c;
+}
+
+#intro i:hover {
+  color: #3bbaec;
+}
+
+#intro #social-links a {
+  text-decoration: none;
+}
+
+#intro .see-more {
+  position: absolute;
+  right: 16vw;
+  bottom: 6vh;
+}
+
+#intro .scroll-arrow {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 110px;
+  background: url(../assets/scroll-arrow.jpg);
+  background-size: contain;
+  margin-left: 30px;
+  margin-top: 20px;
+  z-index: 3;
+}
+
+.dark-mode #intro .scroll-arrow {
+  filter: invert(0.9);
+}
+
+/**
+ * Dark/light mode toggle.
+ */
+.switch {
+  position: absolute;
+  width: 60px;
+  height: 34px;
+  top: 40px;
+  right: 40px;
+  opacity: 0.8;
+  transition: 0.1s opacity ease-in;
+  z-index: 4;
+}
+
+.switch:hover {
+  opacity: 1;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+svg {
+  position: absolute;
+  font-size: 16px;
+  top: 9px;
+  right: -7px;
+  color: white;
+}
+
+.switch .fa-sun,
+.switch .fa-moon {
+  position: absolute;
+  font-size: 16px;
+  top: 9px;
+  right: 8px;
+  color: white;
+}
+
+.switch .fa-moon {
+  right: 36px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4a4a4a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/**
+ * Navigation.
+ */
+#navbar {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  column-gap: 100px;
+  background: #1c1c1c;
+  padding-right: 80px;
+  z-index: 3;
+}
+
+#navbar.sticky {
+  z-index: 5;
+}
+
+#navbar .link {
+  font-family: "Nunito", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: 0.1s color ease-in;
+  cursor: pointer;
+}
+
+#navbar .link:hover,
+#navbar .link.selected {
+  color: #3bbaec;
+}
+
+.dark-mode #navbar {
+  background: #414141;
+}
+
+#about-me {
+  display: flex;
+  background: #3bbaec;
+  width: 100vw;
+  padding: 0;
+  padding-top: 60px;
+  overflow: hidden;
+}
+
+#about-me .portrait,
+#about-me .details {
+  display: inline-block;
+  padding: 50px;
+}
+
+#about-me .portrait {
+  display: flex;
+  justify-content: center;
+  width: 40vw;
+  padding: 20px;
+  padding-left: 90px;
+}
+
+#about-me .portrait .headshot-container {
+  position: absolute;
+  display: block;
+  width: 443px;
+  padding: 40px;
+  z-index: 4;
+}
+
+#about-me .portrait .headshot-container assets {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 55px solid #1c1c1c;
+  border-radius: 0 0 125px 125px;
+}
+
+#about-me .portrait .headshot-container::before {
+  content: "";
+  position: absolute;
+  width: 82px;
+  height: 171px;
+  border-top: 23px solid #1c1c1c;
+  border-left: 23px solid #1c1c1c;
+  border-bottom: 23px solid #1c1c1c;
+  border-radius: 69px 69px 5px 340px;
+  margin-top: 30px;
+  margin-left: -83px;
+  z-index: 0;
+}
+
+#about-me .portrait .headshot-container::after {
+  content: "";
+  position: absolute;
+  margin-top: -335px;
+  margin-left: 269px;
+  border-bottom: 0px solid rgba(255, 255, 255, 0.0784313725);
+  border-right: 4px solid rgba(255, 255, 255, 0.0784313725);
+  border-radius: 170px 0 190px 0;
+  width: 68px;
+  height: 295px;
+  transform: none;
+}
+
+/**
+ * Coffee vapour.
+ */
+.vapour {
+  position: absolute;
+  display: flex;
+  z-index: 4;
+  padding: 0 20px;
+  justify-content: center;
+  width: 363px;
+  margin-top: -50px;
+}
+
+.vapour span {
+  position: relative;
+  bottom: 50px;
+  display: block;
+  margin: 0 2px 50px;
+  min-width: 8px;
+  height: 120px;
+  background: rgba(0, 0, 0, 0.1803921569);
+  border-radius: 50%;
+  animation: animate 5s linear infinite;
+  opacity: 0;
+  filter: blur(10px);
+  animation-delay: calc(var(--v) * -0.5s);
+}
+
+.dark-mode .vapour span {
+  background: #fff;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-150px) scaleX(5);
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-300px) scaleX(10);
+  }
+}
+#about-me .details {
+  width: 60vw;
+  font-family: "Nunito", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  padding-right: 80px;
+  z-index: 2;
+}
+#about-me .details .contact-info {
+  line-height: 0.5em;
+  display: inline-block;
+  width: 150px;
+}
+#about-me .details .contact-info a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.2s all;
+}
+#about-me .details .contact-info a:hover {
+  color: white;
+}
+
+#download-resume-form {
+  display: inline;
+}
+
+#download-resume-button {
+  vertical-align: top;
+  margin-top: 10px;
+  margin-left: 70px;
+  width: 170px;
+  height: 40px;
+  border: 2px solid black;
+  border-style: outset;
+  border-radius: 8px;
+  background: white;
+  color: black;
+  cursor: pointer;
+}
+
+#download-resume-button:hover {
+  box-shadow: 2px 2px 0 black;
+}
+
+#about-me h3 {
+  color: rgb(47, 47, 47);
+  margin-top: 50px;
+}
+
+#web-based-resume {
+  background: white;
+  padding: 60px 140px;
+}
+
+.dark-mode #web-based-resume {
+  background: #1c1c1c;
+  color: white;
+}
+
+#web-based-resume h4 {
+  width: fit-content;
+  font-size: 22px;
+}
+
+.dark-mode #web-based-resume h4 {
+  color: white;
+}
+
+#web-based-resume h4:after {
+  content: " ";
+  display: block;
+  height: 4px;
+  background-color: #3bbaec;
+}
+
+.resume-section {
+  font-family: "Nunito", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+}
+.resume-section .experience {
+  display: block;
+  padding: 0 100px;
+  padding-top: 20px;
+}
+.resume-section .experience .title,
+.resume-section .experience .caption {
+  display: block;
+}
+.resume-section .experience .title {
+  font-size: 19px;
+  font-weight: 700;
+}
+.resume-section .experience .caption {
+  opacity: 0.47;
+}
+.resume-section .experience li {
+  font-weight: 100;
+  margin-bottom: 5px;
+}
+.resume-section .experience li .bold {
+  font-weight: bold;
+}
+
+#tool-belt {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 10px;
+  padding: 0 100px;
+}
+
+#tool-belt .tool {
+  border: 2px solid #3bbaec;
+  border-radius: 4px;
+  color: black;
+  padding: 11px 17px;
+}
+
+.dark-mode #tool-belt .tool {
+  color: white;
+}
+
+#tool-belt .tool:hover {
+  transform: translate(-1px, -1px);
+}
+
+#projects .experience {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  flex-direction: row;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+#projects .experience .project-card {
+  max-width: 441px;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: 1px solid #d9d9d9;
+  border-radius: 14px;
+  background: white;
+  overflow: hidden;
+  text-decoration: none;
+}
+#projects .experience .card-backdrop {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  background: lightgray;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: 0.3s all;
+}
+#projects .experience .card-backdrop .hover-info {
+  display: block;
+  padding: 20px;
+  padding-top: 18%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+#projects .experience .card-backdrop .hover-info i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 25px;
+  color: #3bbaec;
+}
+#projects .experience .card-backdrop .hover-info .title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#projects .experience .card-backdrop .hover-info:hover {
+  opacity: 1;
+}
+#projects .experience .card-backdrop.highlights {
+  background: url(../assets/highlights-kids-homepage.jpg);
+  background-size: 100%;
+}
+#projects .experience .card-backdrop.bluprint {
+  background: url(../assets/bluprint-homepage.jpg);
+  background-size: 100%;
+}
+#projects .experience .card-backdrop.stemscopes {
+  background: url(../assets/stemscopes-homepage.jpg);
+  background-size: 100%;
+}
+#projects .experience .card-backdrop.bitsbox {
+  background: url(../assets/bitsbox-homepage.jpg);
+  background-size: 100%;
+}
+#projects .experience .card-backdrop.bitsbox-store {
+  background: url(../assets/bitsbox-storepage.jpg);
+  background-size: 100%;
+}
+#projects .experience .card-backdrop.skoolie-locker-rentals {
+  background: url(../assets/skoolie-locker-rentals.jpg);
+  background-size: 100%;
+}
+#projects .experience .card-backdrop.bitsbox .description,
+#projects .experience .card-backdrop.bitsbox-store .description,
+#projects .experience .card-backdrop.skoolie-locker-rentals .description {
+  font-size: 14px;
+}
+#projects .experience .card-backdrop:hover,
+#projects .experience .selected.card-backdrop {
+  background-size: 140%;
+  background-position: -40px -40px;
+}
+#projects .experience .selected .hover-info {
+  opacity: 1;
+}
+
+.blog-card {
+  position: relative;
+  vertical-align: top;
+  display: inline-block;
+  width: 280px;
+  height: 195px;
+  margin: 10px;
+  margin-left: 0;
+  margin-right: 20px;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  text-align: left;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: black;
+}
+
+.dark-mode .blog-card {
+  color: #e3e3e3;
+}
+
+.blog-card:hover {
+  top: -2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card-image-container {
+  width: 278px;
+  height: 117px;
+  overflow: hidden;
+  margin: -10px -16px 10px -16px;
+  border-bottom: 1px solid #d9d9d9;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.fit {
+  max-width: 100%;
+}
+
+#footer {
+  width: 100vw;
+  height: 47px;
+  background-color: #3bbaec;
+  color: white;
+  font-family: "Nunito";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/**
+ * Responsive styles.
+ */
+@media screen and (max-width: 1389px) {
+  #about-me .portrait .headshot-container {
+    scale: 0.9;
+  }
+  #projects .experience {
+    justify-content: center;
+  }
+  #blogs .experience {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 1167px) {
+  #about-me .portrait .headshot-container {
+    scale: 0.7;
+  }
+}
+@media screen and (max-width: 1020px) {
+  #about-me .portrait .headshot-container {
+    scale: 0.5;
+    margin-top: -44px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  h2 {
+    font-size: 42px;
+  }
+  #intro .content p {
+    font-size: 15px;
+  }
+  #intro .content p .bold {
+    font-size: 16px;
+  }
+  #intro i {
+    font-size: 32px;
+  }
+  #navbar {
+    column-gap: 60px;
+  }
+  #navbar .link {
+    font-size: 16px;
+  }
+  .resume-section .experience,
+  #tool-belt {
+    padding: 0 80px;
+  }
+}
+@media screen and (max-width: 875px) {
+  #projects .experience .card-backdrop .hover-info {
+    padding-top: 10%;
+    padding-bottom: 66px;
+  }
+}
+@media screen and (max-width: 845px) {
+  #download-resume-form {
+    display: block;
+  }
+  #download-resume-button {
+    vertical-align: unset;
+    margin-left: 0;
+  }
+  #projects .experience .card-backdrop .hover-info {
+    padding-top: 10%;
+    padding-bottom: 77px;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 800px) {
+  #intro .see-more {
+    display: none;
+  }
+  #navbar {
+    justify-content: center;
+    padding-right: 0;
+  }
+  #about-me {
+    flex-wrap: wrap;
+    overflow: initial;
+  }
+  #about-me .portrait {
+    width: 100vw;
+    padding-left: 20px;
+    padding-bottom: 0;
+  }
+  #about-me .details {
+    width: 100vw;
+    padding-top: 20px;
+  }
+  #about-me h3 {
+    margin-top: 10px;
+  }
+  #web-based-resume {
+    padding: 60px 50px;
+  }
+  #web-based-resume h4 {
+    margin: 29px auto;
+  }
+  .resume-section .experience,
+  #tool-belt {
+    padding: 0;
+  }
+  #about-me .portrait .headshot-container {
+    position: relative;
+    scale: 0.9;
+    margin-top: auto;
+  }
+  #projects .experience .card-backdrop .hover-info {
+    padding-top: 17%;
+    padding-bottom: 25px;
+    font-size: unset;
+  }
+}
+@media screen and (max-width: 680px) {
+  h2 {
+    font-size: 32px;
+  }
+  #intro .content {
+    min-width: 80%;
+  }
+  #intro .content p {
+    font-size: 14px;
+  }
+  #intro .content p .bold {
+    font-size: 15px;
+  }
+  #intro i {
+    font-size: 27px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #intro i {
+    margin: 0 10px;
+  }
+  #navbar {
+    column-gap: 30px;
+  }
+  #navbar .link {
+    font-size: 13px;
+  }
+  #navbar .link:hover {
+    color: white;
+  }
+  #navbar .link.selected {
+    color: #3bbaec;
+  }
+}
+@media screen and (max-width: 525px) {
+  #about-me .portrait .headshot-container {
+    scale: 0.7;
+  }
+  #projects .experience .card-backdrop .hover-info {
+    padding-top: 18%;
+    padding-bottom: 50px;
+    font-size: 14px;
+  }
+  #projects .experience .card-backdrop .hover-info .title {
+    font-size: 20px;
+  }
+  #projects .experience .card-backdrop .hover-info .description {
+    font-size: 13px;
+  }
+  #projects .experience .card-backdrop .hover-info i {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  #projects .experience .card-backdrop .hover-info {
+    padding-top: 11%;
+    font-size: 13px;
+    padding-bottom: 60px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #projects .experience .card-backdrop .hover-info .description {
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 470px) {
+  #about-me .portrait .headshot-container img {
+    width: 107%;
+  }
+}
+@media screen and (max-width: 450px) {
+  h2 {
+    font-size: 28px;
+  }
+  #intro .content p {
+    font-size: 12px;
+  }
+  #intro .content p .bold {
+    font-size: 13px;
+  }
+  #intro i {
+    font-size: 20px;
+  }
+  #about-me .portrait .headshot-container {
+    scale: 0.6;
+    padding: 6px;
+  }
+  #projects .experience .card-backdrop .hover-info {
+    padding-top: 18%;
+  }
+  #projects .experience .card-backdrop .hover-info .title {
+    font-size: 18px;
+    line-height: 0.7;
+  }
+  #projects .experience .card-backdrop .hover-info .description {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 420px) {
+  #projects .experience .card-backdrop .hover-info {
+    padding-top: 11%;
+  }
+}
+@media screen and (max-width: 401px) {
+  #intro i {
+    margin: 0 8px;
+  }
+  #projects .experience .card-backdrop .hover-info {
+    padding-top: 9%;
+    font-size: 11px;
+  }
+  #projects .experience .card-backdrop .hover-info .title {
+    font-size: 16px;
+    line-height: 0.5;
+  }
+}
+@media screen and (max-width: 380px) {
+  #intro i {
+    margin: 0 6px;
+  }
+  #projects .experience .card-backdrop .hover-info {
+    padding-top: 7%;
+  }
+  #projects .experience .card-backdrop .hover-info .description {
+    font-size: 9px;
+  }
+}
+@media screen and (max-width: 360px) {
+  #projects .experience .card-backdrop .hover-info i {
+    font-size: 15px;
+    top: 15px;
+    right: 15px;
+  }
+  #projects .experience .card-backdrop .hover-info .title {
+    font-size: 13px;
+  }
+  #projects .experience .card-backdrop .hover-info .description {
+    font-size: 7px;
+  }
+}
+
+/*# sourceMappingURL=portfolio.css.map */
