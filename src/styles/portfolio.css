@@ -31,75 +31,75 @@ h3 {
   color: #3bbaec;
 }
 
-#intro {
-  background: white;
+#hero {
+  background-image: url(../assets/hero-background.jpg);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
   font-family: "Nunito", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
   text-align: center;
   color: black;
   margin: 0 auto;
+  filter: brightness(1.5);
 }
 
-.dark-mode #intro {
-  background-color: #1c1c1c;
+.dark-mode #hero {
+  background-image: url(../assets/hero-background.jpg);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
   color: white;
+  filter: brightness(1);
 }
 
-#intro h2 {
-  transform: rotate(-5deg);
-}
-
-#intro .content {
+#hero .content {
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 677px;
   min-width: 560px;
 }
 
-#intro .content p {
+#hero .content p {
   font-size: 16px;
-  color: #8c8c8c;
+  color: #E5E5E5;
 }
 
-#intro .content p .bold {
+#hero .content p .bold {
   font-size: 17px;
   color: #3bbaec;
 }
 
-#intro i {
+#hero #social-links svg {
+  position: relative;
   font-size: 36px;
   color: black;
   margin: 0 15px;
   transition: 0.2s all;
 }
 
-#intro i.fa-folder-closed,
-#intro i.fa-folder-open {
-  width: 36px;
+.dark-mode #hero #social-links svg {
+  color: #E5E5E5;
 }
 
-.dark-mode #intro i {
-  color: #8c8c8c;
-}
-
-#intro i:hover {
+#hero #social-links svg:hover {
   color: #3bbaec;
 }
 
-#intro #social-links a {
+#hero #social-links a {
   text-decoration: none;
 }
 
-#intro .see-more {
+#hero .see-more {
   position: absolute;
   right: 16vw;
   bottom: 6vh;
 }
 
-#intro .scroll-arrow {
+#hero .scroll-arrow {
   position: relative;
   display: block;
   width: 50px;
@@ -109,10 +109,6 @@ h3 {
   margin-left: 30px;
   margin-top: 20px;
   z-index: 3;
-}
-
-.dark-mode #intro .scroll-arrow {
-  filter: invert(0.9);
 }
 
 /**
@@ -139,7 +135,7 @@ h3 {
   height: 0;
 }
 
-svg {
+.switch svg {
   position: absolute;
   font-size: 16px;
   top: 9px;
@@ -167,7 +163,7 @@ svg {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #888;
   transition: 0.4s;
   border-radius: 34px;
 }
@@ -229,16 +225,17 @@ input:checked + .slider:before {
 }
 
 .dark-mode #navbar {
-  background: #414141;
+  background: #02172C;
 }
 
 #about-me {
   display: flex;
-  background: #3bbaec;
+  background: #07233B;
   width: 100vw;
   padding: 0;
   padding-top: 60px;
   overflow: hidden;
+  color: white;
 }
 
 #about-me .portrait,
@@ -250,109 +247,24 @@ input:checked + .slider:before {
 #about-me .portrait {
   display: flex;
   justify-content: center;
-  width: 40vw;
+  width: 45vw;
   padding: 20px;
-  padding-left: 90px;
-}
+  padding-bottom: 0;
+  margin-left: 100px;
 
-#about-me .portrait .headshot-container {
-  position: absolute;
-  display: block;
-  width: 443px;
-  padding: 40px;
-  z-index: 4;
-}
-
-#about-me .portrait .headshot-container assets {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 55px solid #1c1c1c;
-  border-radius: 0 0 125px 125px;
-}
-
-#about-me .portrait .headshot-container::before {
-  content: "";
-  position: absolute;
-  width: 82px;
-  height: 171px;
-  border-top: 23px solid #1c1c1c;
-  border-left: 23px solid #1c1c1c;
-  border-bottom: 23px solid #1c1c1c;
-  border-radius: 69px 69px 5px 340px;
-  margin-top: 30px;
-  margin-left: -83px;
-  z-index: 0;
-}
-
-#about-me .portrait .headshot-container::after {
-  content: "";
-  position: absolute;
-  margin-top: -335px;
-  margin-left: 269px;
-  border-bottom: 0px solid rgba(255, 255, 255, 0.0784313725);
-  border-right: 4px solid rgba(255, 255, 255, 0.0784313725);
-  border-radius: 170px 0 190px 0;
-  width: 68px;
-  height: 295px;
-  transform: none;
-}
-
-/**
- * Coffee vapour.
- */
-.vapour {
-  position: absolute;
-  display: flex;
-  z-index: 4;
-  padding: 0 20px;
-  justify-content: center;
-  width: 363px;
-  margin-top: -50px;
-}
-
-.vapour span {
-  position: relative;
-  bottom: 50px;
-  display: block;
-  margin: 0 2px 50px;
-  min-width: 8px;
-  height: 120px;
-  background: rgba(0, 0, 0, 0.1803921569);
-  border-radius: 50%;
-  animation: animate 5s linear infinite;
-  opacity: 0;
-  filter: blur(10px);
-  animation-delay: calc(var(--v) * -0.5s);
-}
-
-.dark-mode .vapour span {
-  background: #fff;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateY(0) scaleX(1);
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-150px) scaleX(5);
-  }
-  95% {
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(-300px) scaleX(10);
+  img {
+    height: 722px;
+    filter: drop-shadow(-88px 47px 0 #061B2D)
+            drop-shadow(-1px 0px 0 #061B2D)
+            drop-shadow(0px 2px 0 #061B2D)
+            drop-shadow(0px 0px 0 #061B2D);
   }
 }
+
 #about-me .details {
-  width: 60vw;
+  width: 55vw;
   font-family: "Nunito", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-  padding-right: 80px;
+  padding-right: 180px;
   z-index: 2;
 }
 #about-me .details .contact-info {
@@ -385,6 +297,10 @@ input:checked + .slider:before {
   background: white;
   color: black;
   cursor: pointer;
+
+  svg {
+    margin-right: 10px;
+  }
 }
 
 #download-resume-button:hover {
@@ -392,7 +308,6 @@ input:checked + .slider:before {
 }
 
 #about-me h3 {
-  color: rgb(47, 47, 47);
   margin-top: 50px;
 }
 
@@ -402,7 +317,7 @@ input:checked + .slider:before {
 }
 
 .dark-mode #web-based-resume {
-  background: #1c1c1c;
+  background: #01172F;
   color: white;
 }
 
@@ -513,7 +428,7 @@ input:checked + .slider:before {
   opacity: 0;
   transition: 0.3s opacity;
 }
-#projects .experience .card-backdrop .hover-info i {
+#projects .experience .card-backdrop .hover-info svg {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -609,7 +524,7 @@ input:checked + .slider:before {
 #footer {
   width: 100vw;
   height: 47px;
-  background-color: #3bbaec;
+  background-color: #07233B;
   color: white;
   font-family: "Nunito";
   display: flex;
@@ -655,13 +570,13 @@ input:checked + .slider:before {
   h2 {
     font-size: 42px;
   }
-  #intro .content p {
+  #hero .content p {
     font-size: 15px;
   }
-  #intro .content p .bold {
+  #hero .content p .bold {
     font-size: 16px;
   }
-  #intro i {
+  #hero i {
     font-size: 32px;
   }
   #navbar {
@@ -696,7 +611,7 @@ input:checked + .slider:before {
   }
 }
 @media screen and (max-width: 800px) {
-  #intro .see-more {
+  #hero .see-more {
     display: none;
   }
   #navbar {
@@ -744,21 +659,21 @@ input:checked + .slider:before {
   h2 {
     font-size: 32px;
   }
-  #intro .content {
+  #hero .content {
     min-width: 80%;
   }
-  #intro .content p {
+  #hero .content p {
     font-size: 14px;
   }
-  #intro .content p .bold {
+  #hero .content p .bold {
     font-size: 15px;
   }
-  #intro i {
+  #hero i {
     font-size: 27px;
   }
 }
 @media screen and (max-width: 600px) {
-  #intro i {
+  #hero i {
     margin: 0 10px;
   }
   #navbar {
@@ -814,13 +729,13 @@ input:checked + .slider:before {
   h2 {
     font-size: 28px;
   }
-  #intro .content p {
+  #hero .content p {
     font-size: 12px;
   }
-  #intro .content p .bold {
+  #hero .content p .bold {
     font-size: 13px;
   }
-  #intro i {
+  #hero i {
     font-size: 20px;
   }
   #about-me .portrait .headshot-container {
@@ -844,7 +759,7 @@ input:checked + .slider:before {
   }
 }
 @media screen and (max-width: 401px) {
-  #intro i {
+  #hero i {
     margin: 0 8px;
   }
   #projects .experience .card-backdrop .hover-info {
@@ -857,7 +772,7 @@ input:checked + .slider:before {
   }
 }
 @media screen and (max-width: 380px) {
-  #intro i {
+  #hero i {
     margin: 0 6px;
   }
   #projects .experience .card-backdrop .hover-info {

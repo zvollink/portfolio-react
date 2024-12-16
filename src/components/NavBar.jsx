@@ -1,137 +1,70 @@
-export default class NavBarManager {
-  constructor() {
+import React, { useEffect, useRef, useState, useContext } from 'react';
+import { SectionContext } from '../contexts/SectionContext';
 
-    if (window.location.pathname !== '/' &&
-        window.location.pathname !== '/index.html') {
-      return;
-    }
+export default function NavBar({ links }) {
+  const navbarRef = useRef(null);
 
-    /**
-     * Navigation links.
-     * @type {Object}
-     */
-    this.links = {
-      'About': { id: 'about-me', href: '#about-me' },
-      'Work': { id: 'work', href: '#work' },
-      'Projects': { id: 'projects', href: '#projects' },
-      'Blogs': { id: 'blogs', href: '#blogs' }
-    }
+  const { refs, heights } = useContext(SectionContext);
+  const [sticky, setSticky] = useState(false);
+  const [selectedSection, setSelectedSection] = useState('');
 
-    /**
-     * A navbar to display at the top of the page for users to navigate
-     * the site from.
-     */
-    this.navbar = document.createElement('div');
-    this.navbar.id = 'navbar';
+  useEffect(() => {
+    const handleScroll = () => {
+      const yPos = window.pageYOffset;
+      const stickyHeight = window.innerHeight;
+      const pageLimit = document.body.scrollHeight - window.innerHeight;
 
-    for (let link in this.links) {
-      let linkTag = document.createElement('a');
-      linkTag.dataset.id = this.links[link].id;
-      linkTag.classList.add('link');
-      linkTag.innerText = link;
-      //linkTag.href = this.links[link].href;
-      this.navbar.append(linkTag);
-    }
+      const sectionHeights = [
+        { id: 'intro', height: stickyHeight },
+        { id: 'about-me', height: heights.aboutMe },
+        { id: 'work', height: heights.work },
+        { id: 'projects', height: heights.projects },
+        { id: 'blogs', height: heights.blogs }
+      ];
 
-    const aboutSection = document.getElementById('about-me');
-    document.body.insertBefore(this.navbar, aboutSection);
+      // Check sticky logic.
+      setSticky(yPos > stickyHeight);
 
-    this.activateLinks();
-  }
+      // Determine current section.
+      let currentSection;
+      let leftOver = yPos + (navbarRef.current?.clientHeight || 0);
+      let tempSections = [...sectionHeights];
 
-
-  /**
-   * Handles attaching the navigation to the top of the page as the user
-   * scrolls past it.
-   * 
-   * Designed to be called via scroll event handler:
-   *   window.addEventListener('scroll', navBarManager.stickyNavBar);
-   */
-  stickyNavBar() {
-    const doc = window.document;
-    let yPos = window.pageYOffset;
-    let stickyHeight = window.innerHeight;
-    const pageLimit = document.body.scrollHeight - window.innerHeight;
-
-    // Heights of all the various sections.
-    const aboutHeight = doc.getElementById('about-me').clientHeight;
-
-    // Shortening the tools section here gives more room to the projects
-    // section, and in turn allows the blog section to start sooner.
-    const workHeight = doc.getElementById('work').clientHeight +
-                       doc.getElementById('education').clientHeight +
-                       doc.getElementById('tools').clientHeight * .5;
-    const projectsHeight = doc.getElementById('projects').clientHeight;
-
-    // Doubling the blog section height keeps the Blog nav link selected as
-    // users scroll beyond the bottom of the page on mobile.
-    const blogsHeight = doc.getElementById('blogs').clientHeight * 2;
-
-    // An array of section heights and ids to help us figure out where
-    // on the page we are.
-    let sectionHeights = [
-      { id: 'intro', height: stickyHeight },
-      { id: 'about-me', height: aboutHeight },
-      { id: 'work', height: workHeight },
-      { id: 'projects', height: projectsHeight },
-      { id: 'blogs', height: blogsHeight }
-    ];
-
-    // Attach/detach navbar.
-    if (yPos > stickyHeight && !this.navbar.classList.contains('sticky')) {
-      this.navbar.classList.add('sticky');
-    } else if (yPos < stickyHeight && this.navbar.classList.contains('sticky')) {
-      this.navbar.classList.remove('sticky');
-    }
-
-    // Highlight links according to section we're currently in.
-    let currentSection;
-    let leftOver = yPos + this.navbar.clientHeight;
-    while (leftOver > 0) {
-      currentSection = sectionHeights[0]?.id;
-      leftOver -= sectionHeights[0]?.height;
-      sectionHeights.shift();
-    }
-
-    const navLinks = Array.from(this.navbar.children);
-    for (var link of navLinks) {
-      link.classList.remove('selected');
-      if (Math.floor(yPos) !== pageLimit &&
-          Math.round(yPos) !== pageLimit) {
-        link.dataset.id === currentSection && link.classList.add('selected');
-      } else {
-
-        // If we're at the bottom of the page, select the Blogs link.
-        navLinks[navLinks.length - 1].classList.add('selected');
+      while (leftOver > 0) {
+        currentSection = tempSections[0]?.id;
+        leftOver -= tempSections[0]?.height;
+        tempSections.shift();
       }
-    }
-  }
 
+      // Highlight appropriate link
+      if (Math.floor(yPos) !== pageLimit && Math.round(yPos) !== pageLimit) {
+        setSelectedSection(currentSection);
+      } else {
+        setSelectedSection('blogs'); // At the bottom of the page.
+      }
+    };
 
-  /**
-   * Sets up the links within the navbar to scroll to their respective spots
-   * on the page when selected.
-   */
-  activateLinks () {
-    const navLinks = Array.from(this.navbar.children);
-    for (var link of navLinks) {
-      link.addEventListener('click', this.linkClickHandler.bind(this, link));
-    }
-  }
-
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
 
   /**
    * Handles clicks on links within the navbar.
-   * @param {HTMLElement} link The link in the nav to set up a click event for.
+   * @param {Event} event The event object.
+   * @param {String} linkRef The ref of the link in the nav to set up a click
+   *     event for.
    */
-  linkClickHandler (link) {
+  const linkClickHandler = (event, linkRef) => {
+    event.preventDefault();
+
+    console.log(linkRef)
+
     const yPos = window.pageYOffset;
-    const linkId = link.dataset.id;
-    const divToScrollTo = document.getElementById(linkId);
-    const buffer = linkId !== 'about-me' ? 80 : 0;
+    const divToScrollTo = refs[linkRef].current;
+    const buffer = linkRef !== 'aboutMe' ? 80 : 0;
     const position = yPos + divToScrollTo.getBoundingClientRect().top - buffer;
-    this.scrollUserTo(position);
-  }
+    scrollUserTo(position);
+  };
 
 
   /**
@@ -140,7 +73,7 @@ export default class NavBarManager {
    * @param {String} opt_behavior The optional behavior of the
    *     scroll. This can be 'smooth', 'instant', or 'auto'.
    */
-  scrollUserTo(position, opt_behavior) {
+  const scrollUserTo = (position, opt_behavior) => {
     const behavior = opt_behavior || 'smooth';
 
     window.scrollTo({
@@ -148,5 +81,25 @@ export default class NavBarManager {
         left: 0,
         behavior: behavior,
       });
-  }
+  };
+
+  return (
+    <div
+      id='navbar'
+      ref={navbarRef}
+      className={sticky ? 'sticky' : ''}
+    >
+      {Object.entries(links).map(([linkText, linkData]) => (
+        <a
+          key={linkData.id}
+          data-id={linkData.id}
+          className={selectedSection === linkData.id ? 'selected link' : 'link'}
+          href={linkData.href}
+          onClick={(e) => linkClickHandler(e, linkData.ref)}
+        >
+          {linkText}
+        </a>
+      ))}
+    </div>
+  );
 }

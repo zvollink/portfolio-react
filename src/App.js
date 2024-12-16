@@ -1,10 +1,18 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+// CSS imports.
+import './styles/portfolio.css'
 
-library.add(faSun, faMoon);
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSun, faMoon, faShieldHalved, faDownload, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub, faInstagram, faAirbnb, faSpotify } from '@fortawesome/free-brands-svg-icons';
+
+// Add icons to our library.
+library.add(
+  faSun, faMoon, faShieldHalved, faLinkedin, faGithub, faInstagram, faAirbnb,
+  faSpotify, faDownload, faArrowUpRightFromSquare
+);
 
 function App() {
   return (
