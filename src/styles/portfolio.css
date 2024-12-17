@@ -230,6 +230,7 @@ input:checked + .slider:before {
 
 #about-me {
   display: flex;
+  flex-direction: row-reverse;
   background: #07233B;
   width: 100vw;
   padding: 0;
@@ -556,9 +557,47 @@ input:checked + .slider:before {
     padding: 0;
   }
 }
+@media screen and (max-width: 1330px) {
+  #about-me .details {
+    padding-right: 40px;
+  }
+  #download-resume-button {
+    margin-left: 50px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #download-resume-button {
+    display: block;
+    vertical-align: unset;
+    margin-left: 0;
+  }
+  #web-based-resume {
+    padding: 60px 90px;
+  }
+}
 @media screen and (max-width: 1167px) {
   #about-me .portrait .headshot-container {
     scale: 0.7;
+  }
+}
+@media screen and (max-width: 1040px) {
+  #about-me {
+    flex-wrap: wrap;
+    overflow: initial;
+    justify-content: center;
+  }
+  #about-me .portrait {
+    width: 100vw;
+    padding: 0 20px;
+    margin-left: 0;
+  }
+  #about-me .details {
+    width: 67vw;
+    padding-top: 20px;
+    padding-bottom: 0;
+  }
+  #about-me h3 {
+    margin-top: 10px;
   }
 }
 @media screen and (max-width: 1020px) {
@@ -601,10 +640,6 @@ input:checked + .slider:before {
   #download-resume-form {
     display: block;
   }
-  #download-resume-button {
-    vertical-align: unset;
-    margin-left: 0;
-  }
   #projects .experience .card-backdrop .hover-info {
     padding-top: 10%;
     padding-bottom: 77px;
@@ -618,22 +653,6 @@ input:checked + .slider:before {
   #navbar {
     justify-content: center;
     padding-right: 0;
-  }
-  #about-me {
-    flex-wrap: wrap;
-    overflow: initial;
-  }
-  #about-me .portrait {
-    width: 100vw;
-    padding-left: 20px;
-    padding-bottom: 0;
-  }
-  #about-me .details {
-    width: 100vw;
-    padding-top: 20px;
-  }
-  #about-me h3 {
-    margin-top: 10px;
   }
   #web-based-resume {
     padding: 60px 50px;

@@ -56,9 +56,6 @@ export default function NavBar({ links }) {
    */
   const linkClickHandler = (event, linkRef) => {
     event.preventDefault();
-
-    console.log(linkRef)
-
     const yPos = window.pageYOffset;
     const divToScrollTo = refs[linkRef].current;
     const buffer = linkRef !== 'aboutMe' ? 80 : 0;

@@ -14,9 +14,6 @@ const AboutMe = () => {
 
   return (
     <div id="about-me" ref={refs.aboutMe}>
-      <div className="portrait">
-          <img src={ZachHeadshot} title="Portrait of Me! (Zach)" alt='Portrait of Zach Vollink' />
-      </div>
       <div className="details">
 
         <h3>About Me</h3>
@@ -41,6 +38,9 @@ const AboutMe = () => {
             Download Resume
           </button>
         </form>
+      </div>
+      <div className="portrait">
+          <img src={ZachHeadshot} title="Portrait of Me! (Zach)" alt='Portrait of Zach Vollink' />
       </div>
     </div>
   );

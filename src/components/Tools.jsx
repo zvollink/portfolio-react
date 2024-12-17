@@ -41,8 +41,8 @@ const Tools = () => {
 
       <span className="experience">
         <div id='tool-belt'>
-          {Object.values(tools).map((toolInfo) =>
-            <span className="tool">{toolInfo.title}</span>
+          {Object.entries(tools).map(([tool, toolInfo]) =>
+            <span key={tool} className="tool">{toolInfo.title}</span>
           )}
         </div>
       </span>
