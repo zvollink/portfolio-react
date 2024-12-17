@@ -583,13 +583,13 @@ input:checked + .slider:before {
 @media screen and (max-width: 1040px) {
   #about-me {
     flex-wrap: wrap;
-    overflow: initial;
     justify-content: center;
   }
   #about-me .portrait {
     width: 100vw;
     padding: 0 20px;
     margin-left: 0;
+    overflow: hidden;
   }
   #about-me .details {
     width: 67vw;
@@ -616,7 +616,7 @@ input:checked + .slider:before {
   #hero .content p .bold {
     font-size: 16px;
   }
-  #hero i {
+  #hero #social-links svg {
     font-size: 32px;
   }
   #navbar {
@@ -658,7 +658,21 @@ input:checked + .slider:before {
     padding: 60px 50px;
   }
   #web-based-resume h4 {
+    font-size: 20px;
     margin: 29px auto;
+  }
+  .resume-section .experience .title {
+    font-size: 17px;
+  }
+  .resume-section .experience .caption,
+  .resume-section .experience li {
+    font-size: 14px;
+  }
+  .resume-section .experience {
+    margin-left: -20px;
+  }
+  .resume-section .experience ul {
+    margin-left: -20px;
   }
   .resume-section .experience,
   #tool-belt {
@@ -688,12 +702,16 @@ input:checked + .slider:before {
   #hero .content p .bold {
     font-size: 15px;
   }
-  #hero i {
+  #hero #social-links svg {
     font-size: 27px;
+  }
+  #about-me .details {
+    width: 100vw;
+    padding: 0 50px;
   }
 }
 @media screen and (max-width: 600px) {
-  #hero i {
+  #hero #social-links svg {
     margin: 0 10px;
   }
   #navbar {
@@ -755,7 +773,7 @@ input:checked + .slider:before {
   #hero .content p .bold {
     font-size: 13px;
   }
-  #hero i {
+  #hero #social-links svg {
     font-size: 20px;
   }
   #about-me .portrait .headshot-container {
@@ -779,7 +797,7 @@ input:checked + .slider:before {
   }
 }
 @media screen and (max-width: 401px) {
-  #hero i {
+  #hero #social-links svg {
     margin: 0 8px;
   }
   #projects .experience .card-backdrop .hover-info {
@@ -792,7 +810,7 @@ input:checked + .slider:before {
   }
 }
 @media screen and (max-width: 380px) {
-  #hero i {
+  #hero #social-links svg {
     margin: 0 6px;
   }
   #projects .experience .card-backdrop .hover-info {
