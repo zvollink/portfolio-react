@@ -271,6 +271,7 @@ input:checked + .slider:before {
   line-height: 0.5em;
   display: inline-block;
   width: 150px;
+  font-style: normal;
 }
 #about-me .details .contact-info a {
   text-decoration: none;
@@ -278,7 +279,7 @@ input:checked + .slider:before {
   transition: 0.2s all;
 }
 #about-me .details .contact-info a:hover {
-  color: white;
+  color: #3bbaec;
 }
 
 #download-resume-form {
