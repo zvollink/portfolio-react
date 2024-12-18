@@ -27,6 +27,7 @@ export default function Home() {
   return (
     <SectionProvider>
       <Hero />
+      <div id="waves"></div>
       <NavBar links={links} />
       <AboutMe />
 

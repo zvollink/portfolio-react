@@ -4,6 +4,7 @@ export const SectionContext = createContext();
 
 export const SectionProvider = ({ children }) => {
   const refs = {
+    content: useRef(null),
     aboutMe: useRef(null),
     work: useRef(null),
     projects: useRef(null),
@@ -16,8 +17,15 @@ export const SectionProvider = ({ children }) => {
     setHeights((prev) => ({ ...prev, [section]: height }));
   };
 
+  const [hideHeroContent, setHideHeroContent] = useState(false);
+
+  const updateHideHeroContent = (hidden) => {
+    setHideHeroContent(hidden);
+  };
+
   return (
-    <SectionContext.Provider value={{ refs, heights, updateHeight }}>
+    <SectionContext.Provider value={{ refs, heights, updateHeight,
+        hideHeroContent, updateHideHeroContent }}>
       {children}
     </SectionContext.Provider>
   );

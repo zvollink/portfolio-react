@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { SectionContext } from '../../contexts/SectionContext';
+
 
 /**
  * Toggle switch that sets the site theme 'light' or 'dark'.
  */
 export default function ThemeToggle() {
+  const { hideHeroContent } = useContext(SectionContext);
 
   // Get the saved theme, if any.
   const savedTheme = localStorage.getItem('thezach-theme') || false;
@@ -31,7 +34,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <label className="switch">
+    <label className={hideHeroContent ? 'switch hidden' : 'switch'}>
       <input onClick={toggleTheme} aria-label="Toggle theme" type="checkbox" id="toggleSwitch" defaultChecked={siteTheme === 'dark'} />
       <span className="slider"></span>
       <FontAwesomeIcon icon="sun" />

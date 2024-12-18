@@ -27,7 +27,7 @@ const Work = () => {
         </ul>
       </span>
 
-      <span className="experience">
+      <span className="experience" style={{ marginTop: 20 }}>
         <span className="title">CU*Answers</span>
         <span className="caption">GUI Developer &bull; May 2014 - August 2016 &bull; Grand Rapids, MI</span>
         <ul>

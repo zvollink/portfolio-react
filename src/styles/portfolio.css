@@ -3,6 +3,7 @@
  */
 * {
   box-sizing: border-box;
+  --accent-color: #0ac9ff;
 }
 
 html {
@@ -28,11 +29,12 @@ h3 {
 }
 
 .emphasize {
-  color: #3bbaec;
+  color: var(--accent-color);
 }
 
 #hero {
-  background-image: url(../assets/hero-background.jpg);
+  position: fixed;
+  background-image: url(../assets/hero-background-sky.png);
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -43,10 +45,11 @@ h3 {
   color: black;
   margin: 0 auto;
   filter: brightness(1.5);
+  z-index: 1;
 }
 
 .dark-mode #hero {
-  background-image: url(../assets/hero-background.jpg);
+  background-image: url(../assets/hero-background-sky.png);
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -62,6 +65,9 @@ h3 {
   max-width: 677px;
   min-width: 560px;
 }
+#hero .content.hidden {
+  display: none;
+}
 
 #hero .content p {
   font-size: 16px;
@@ -70,7 +76,7 @@ h3 {
 
 #hero .content p .bold {
   font-size: 17px;
-  color: #3bbaec;
+  color: var(--accent-color);
 }
 
 #hero #social-links svg {
@@ -86,29 +92,22 @@ h3 {
 }
 
 #hero #social-links svg:hover {
-  color: #3bbaec;
+  color: var(--accent-color);
 }
 
 #hero #social-links a {
   text-decoration: none;
 }
 
-#hero .see-more {
-  position: absolute;
-  right: 16vw;
-  bottom: 6vh;
-}
-
-#hero .scroll-arrow {
+#waves {
   position: relative;
-  display: block;
-  width: 50px;
-  height: 110px;
-  background: url(../assets/scroll-arrow.jpg);
-  background-size: contain;
-  margin-left: 30px;
-  margin-top: 20px;
-  z-index: 3;
+  background-image: url(../assets/hero-background-waves.png);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
 }
 
 /**
@@ -123,6 +122,9 @@ h3 {
   opacity: 0.8;
   transition: 0.1s opacity ease-in;
   z-index: 4;
+}
+.switch.hidden {
+  display: none;
 }
 
 .switch:hover {
@@ -221,7 +223,7 @@ input:checked + .slider:before {
 
 #navbar .link:hover,
 #navbar .link.selected {
-  color: #3bbaec;
+  color: var(--accent-color);
 }
 
 .dark-mode #navbar {
@@ -229,14 +231,15 @@ input:checked + .slider:before {
 }
 
 #about-me {
+  position: relative;
   display: flex;
   flex-direction: row-reverse;
   background: #07233B;
   width: 100vw;
   padding: 0;
-  padding-top: 60px;
   overflow: hidden;
   color: white;
+  z-index: 1;
 }
 
 #about-me .portrait,
@@ -280,7 +283,7 @@ input:checked + .slider:before {
   transition: 0.2s all;
 }
 #about-me .details .contact-info a:hover {
-  color: #3bbaec;
+  color: var(--accent-color);
 }
 
 #download-resume-form {
@@ -336,11 +339,13 @@ input:checked + .slider:before {
   content: " ";
   display: block;
   height: 4px;
-  background-color: #3bbaec;
+  background-color: var(--accent-color);
 }
 
 .resume-section {
+  position: relative;
   font-family: "Nunito", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  z-index: 1;
 }
 .resume-section .experience {
   display: block;
@@ -378,7 +383,7 @@ input:checked + .slider:before {
 }
 
 #tool-belt .tool {
-  border: 2px solid #3bbaec;
+  border: 2px solid var(--accent-color);
   border-radius: 4px;
   color: black;
   padding: 11px 17px;
@@ -435,7 +440,7 @@ input:checked + .slider:before {
   top: 20px;
   right: 20px;
   font-size: 25px;
-  color: #3bbaec;
+  color: var(--accent-color);
 }
 #projects .experience .card-backdrop .hover-info .title {
   font-size: 22px;
@@ -584,6 +589,7 @@ input:checked + .slider:before {
   #about-me {
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 60px;
   }
   #about-me .portrait {
     width: 100vw;
@@ -668,9 +674,6 @@ input:checked + .slider:before {
   .resume-section .experience li {
     font-size: 14px;
   }
-  .resume-section .experience {
-    margin-left: -20px;
-  }
   .resume-section .experience ul {
     margin-left: -20px;
   }
@@ -724,7 +727,7 @@ input:checked + .slider:before {
     color: white;
   }
   #navbar .link.selected {
-    color: #3bbaec;
+    color: var(--accent-color);
   }
 }
 @media screen and (max-width: 525px) {
@@ -833,5 +836,3 @@ input:checked + .slider:before {
     font-size: 7px;
   }
 }
-
-/*# sourceMappingURL=portfolio.css.map */

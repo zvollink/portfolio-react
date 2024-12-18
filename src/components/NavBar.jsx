@@ -4,7 +4,7 @@ import { SectionContext } from '../contexts/SectionContext';
 export default function NavBar({ links }) {
   const navbarRef = useRef(null);
 
-  const { refs, heights } = useContext(SectionContext);
+  const { refs, heights, updateHideHeroContent } = useContext(SectionContext);
   const [sticky, setSticky] = useState(false);
   const [selectedSection, setSelectedSection] = useState('');
 
@@ -24,6 +24,10 @@ export default function NavBar({ links }) {
 
       // Check sticky logic.
       setSticky(yPos > stickyHeight);
+
+      // If the navbar is at the top of the screen, hide hero
+      // content and theme toggle.
+      sticky ? updateHideHeroContent(true) : updateHideHeroContent(false);
 
       // Determine current section.
       let currentSection;
