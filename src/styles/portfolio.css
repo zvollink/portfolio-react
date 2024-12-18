@@ -107,21 +107,29 @@ h3 {
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 2;
+}
+#waves .fake-theme-toggle {
+  position: fixed;
+  width: 60px;
+  height: 34px;
+  top: 40px;
+  right: 40px;
+  cursor: pointer;
 }
 
 /**
  * Dark/light mode toggle.
  */
 .switch {
-  position: absolute;
+  position: fixed;
   width: 60px;
   height: 34px;
   top: 40px;
   right: 40px;
   opacity: 0.8;
   transition: 0.1s opacity ease-in;
-  z-index: 4;
+  z-index: 2;
 }
 .switch.hidden {
   display: none;
@@ -239,7 +247,7 @@ input:checked + .slider:before {
   padding: 0;
   overflow: hidden;
   color: white;
-  z-index: 1;
+  z-index: 2;
 }
 
 #about-me .portrait,

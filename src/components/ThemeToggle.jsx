@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SectionContext } from '../contexts/SectionContext';
 
@@ -7,38 +7,35 @@ import { SectionContext } from '../contexts/SectionContext';
  * Toggle switch that sets the site theme 'light' or 'dark'.
  */
 export default function ThemeToggle() {
-  const { hideHeroContent } = useContext(SectionContext);
+  const { refs, hideHeroContent, siteTheme, toggleTheme } = useContext(SectionContext);
 
-  // Get the saved theme, if any.
-  const savedTheme = localStorage.getItem('thezach-theme') || false;
-
-  // Also grab any theme preference from the users operating system.
-  const themePreference = window.matchMedia &&
-                          window.matchMedia('(prefers-color-scheme: dark)')
-                              .matches ? 'dark' : 'light';
-  
-  // Default to the saved theme, over the preference.
-  const [siteTheme, setSiteTheme] = useState(savedTheme || themePreference);
-
-  // Set initial theme based on the user's preference or default setting.
+  // Sync the theme with the user's preferences or saved setting during mount.
   useEffect(() => {
-    setSiteTheme(savedTheme || themePreference);
-    document.body.classList.toggle('dark-mode', siteTheme === 'dark');
-  }, []);
+    const savedTheme = localStorage.getItem('thezach-theme');
+    const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const initialTheme = savedTheme || systemPreference;
 
-  const toggleTheme = () => {
-    const newTheme = siteTheme === 'light' ? 'dark' : 'light';
-    setSiteTheme(newTheme);
-    document.body.classList.toggle('dark-mode', newTheme === 'dark');
-    localStorage.setItem('thezach-theme', newTheme);
-  };
+    // Only update if the theme isn't already set.
+    if (siteTheme !== initialTheme) {
+      toggleTheme(initialTheme);
+    }
+
+    // Sync the body's class with the theme.
+    document.body.classList.toggle('dark-mode', initialTheme === 'dark');
+  }, [siteTheme, toggleTheme]);
 
   return (
-    <label className={hideHeroContent ? 'switch hidden' : 'switch'}>
-      <input onClick={toggleTheme} aria-label="Toggle theme" type="checkbox" id="toggleSwitch" defaultChecked={siteTheme === 'dark'} />
+    <label className={hideHeroContent ? 'switch hidden' : 'switch'} ref={refs.toggle}>
+      <input
+        aria-label="Toggle theme"
+        type="checkbox"
+        id="toggleSwitch"
+        checked={siteTheme === 'dark'}
+        readOnly
+      />
       <span className="slider"></span>
       <FontAwesomeIcon icon="sun" />
       <FontAwesomeIcon icon="moon" />
     </label>
-  )
+  );
 }
