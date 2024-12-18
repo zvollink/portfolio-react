@@ -2,6 +2,7 @@
 import { SectionProvider } from '../contexts/SectionContext';
 
 // Component imports.
+import ThemeToggle from '../components/ThemeToggle';
 import Hero from '../components/Hero/Hero'
 import NavBar from '../components/NavBar'
 import AboutMe from '../components/AboutMe';
@@ -26,6 +27,7 @@ const links = {
 export default function Home() {
   return (
     <SectionProvider>
+      <ThemeToggle />
       <Hero />
       <div id="waves"></div>
       <NavBar links={links} />

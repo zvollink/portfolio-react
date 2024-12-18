@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { SectionContext } from '../../contexts/SectionContext';
+import { SectionContext } from '../contexts/SectionContext';
 
 
 /**
