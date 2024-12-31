@@ -42,7 +42,7 @@ h3 {
   height: 100vh;
   font-family: "Nunito", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
   text-align: center;
-  color: black;
+  color: white;
   margin: 0 auto;
   filter: brightness(1.5);
   z-index: 1;
@@ -53,7 +53,6 @@ h3 {
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
-  color: white;
   filter: brightness(1);
 }
 
@@ -82,13 +81,9 @@ h3 {
 #hero #social-links svg {
   position: relative;
   font-size: 36px;
-  color: black;
+  color: #E5E5E5;
   margin: 0 15px;
   transition: 0.2s all;
-}
-
-.dark-mode #hero #social-links svg {
-  color: #E5E5E5;
 }
 
 #hero #social-links svg:hover {
@@ -210,7 +205,7 @@ input:checked + .slider:before {
   justify-content: right;
   align-items: center;
   column-gap: 100px;
-  background: #1c1c1c;
+  background: #19486b;
   padding-right: 80px;
   z-index: 3;
 }
@@ -242,11 +237,12 @@ input:checked + .slider:before {
   position: relative;
   display: flex;
   flex-direction: row-reverse;
-  background: #07233B;
+  background: #19486b;
   width: 100vw;
   padding: 0;
   overflow: hidden;
   color: white;
+  filter: brightness(1.5);
   z-index: 2;
 }
 
@@ -263,6 +259,7 @@ input:checked + .slider:before {
   padding: 20px;
   padding-bottom: 0;
   margin-left: 100px;
+  filter: brightness(.8);
 
   img {
     height: 722px;
@@ -292,6 +289,13 @@ input:checked + .slider:before {
 }
 #about-me .details .contact-info a:hover {
   color: var(--accent-color);
+}
+.dark-mode #about-me {
+  background: #07233B;
+  filter: brightness(1);
+}
+.dark-mode #about-me .portrait {
+  filter: brightness(1);
 }
 
 #download-resume-container {
@@ -330,22 +334,18 @@ input:checked + .slider:before {
 }
 
 #web-based-resume {
-  background: white;
+  background: #19486b;
+  color: white;
   padding: 60px 140px;
 }
 
 .dark-mode #web-based-resume {
   background: #01172F;
-  color: white;
 }
 
 #web-based-resume h4 {
   width: fit-content;
   font-size: 22px;
-}
-
-.dark-mode #web-based-resume h4 {
-  color: white;
 }
 
 #web-based-resume h4:after {
@@ -405,12 +405,8 @@ input:checked + .slider:before {
 #tool-belt .tool {
   border: 2px solid var(--accent-color);
   border-radius: 4px;
-  color: black;
-  padding: 11px 17px;
-}
-
-.dark-mode #tool-belt .tool {
   color: white;
+  padding: 11px 17px;
 }
 
 #tool-belt .tool:hover {
@@ -519,10 +515,6 @@ input:checked + .slider:before {
   text-align: left;
   padding: 10px 16px;
   text-decoration: none;
-  color: black;
-}
-
-.dark-mode .blog-card {
   color: #e3e3e3;
 }
 
@@ -548,12 +540,15 @@ input:checked + .slider:before {
 #footer {
   width: 100vw;
   height: 47px;
-  background-color: #07233B;
+  background-color: #082f51;
   color: white;
   font-family: "Nunito";
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.dark-mode #footer {
+  background-color: #07233B;
 }
 
 #footer p {
