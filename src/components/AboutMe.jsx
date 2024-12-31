@@ -17,8 +17,8 @@ const AboutMe = () => {
       <div className="details">
 
         <h3>About Me</h3>
-        <p>Originally hailing from the delightful streets of Grand Rapids, Michigan &#127750;, I've also spent six wild years in the Rocky Mountain state&mdash;Colorado! &#127956; There, I honed my skills while teaching kids to code and soaking up the sun. &#x2600;</p>
-        <p>When I'm not crafting pixel-perfect interfaces, you'll find me mountain biking down rugged trails &#128693;, gaming with friends online &#127918;, or disc golfing with the fam &#129359;. While Frontend work happens to be where I shine, disc golf is.. well, not. &#128517;</p>
+        <p>Originally hailing from the delightful streets of Grand Rapids, Michigan, I've also spent six wild years in the Rocky Mountain state&mdash;Colorado! There, I honed my skills while teaching kids to code and soaking up the sun.</p>
+        <p>When I'm not crafting pixel-perfect interfaces, you'll find me mountain biking down rugged trails, gaming with friends online, or disc golfing with the fam. While Frontend work happens to be where I shine, disc golf is.. well, not.</p>
 
         <h3>Contact Details</h3>
         <address className="contact-info">
@@ -32,12 +32,17 @@ const AboutMe = () => {
           </p>
         </address>
 
-        <form id="download-resume-form" method="get" action="/assets/resume/Zach Vollink Resume 2024.pdf">
-          <button id="download-resume-button" type="submit" title="Click to download my resume!">
+        <span id="download-resume-container">
+          <a
+            id="download-resume-button"
+            href="/assets/resume/Zach_Vollink_Resume_2024.pdf"
+            download="Zach_Vollink_Resume_2024.pdf"
+            title="Click to download my resume!"
+          >
             <FontAwesomeIcon icon={['fas', 'download']} />
             Download Resume
-          </button>
-        </form>
+          </a>
+        </span>
       </div>
       <div className="portrait">
           <img src={ZachHeadshot} title="Portrait of Me! (Zach)" alt='Portrait of Zach Vollink' />

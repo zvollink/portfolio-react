@@ -71,7 +71,7 @@ h3 {
 
 #hero .content p {
   font-size: 16px;
-  color: #E5E5E5;
+  color: white;
 }
 
 #hero .content p .bold {
@@ -294,13 +294,16 @@ input:checked + .slider:before {
   color: var(--accent-color);
 }
 
-#download-resume-form {
-  display: inline;
+#download-resume-container {
+  display: inline-flex;
+  vertical-align: top;
+  margin-top: 10px;
 }
 
 #download-resume-button {
-  vertical-align: top;
-  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 70px;
   width: 170px;
   height: 40px;
@@ -309,6 +312,8 @@ input:checked + .slider:before {
   border-radius: 8px;
   background: white;
   color: black;
+  font-size: 13.3333px;
+  text-decoration: none;
   cursor: pointer;
 
   svg {
@@ -377,6 +382,13 @@ input:checked + .slider:before {
 }
 .resume-section .experience li .bold {
   font-weight: bold;
+}
+#blogs.resume-section .experience {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 #tool-belt {
@@ -502,9 +514,6 @@ input:checked + .slider:before {
   display: inline-block;
   width: 280px;
   height: 195px;
-  margin: 10px;
-  margin-left: 0;
-  margin-right: 20px;
   border: 1px solid #d9d9d9;
   border-radius: 12px;
   text-align: left;
@@ -562,8 +571,7 @@ input:checked + .slider:before {
   #projects .experience {
     justify-content: center;
   }
-  #blogs .experience {
-    display: flex;
+#blogs.resume-section .experience {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -579,9 +587,10 @@ input:checked + .slider:before {
   }
 }
 @media screen and (max-width: 1200px) {
-  #download-resume-button {
+  #download-resume-container {
     display: block;
-    vertical-align: unset;
+  }
+  #download-resume-button {
     margin-left: 0;
   }
   #web-based-resume {
@@ -651,7 +660,7 @@ input:checked + .slider:before {
   }
 }
 @media screen and (max-width: 845px) {
-  #download-resume-form {
+  #download-resume-container {
     display: block;
   }
   #projects .experience .card-backdrop .hover-info {
@@ -676,7 +685,7 @@ input:checked + .slider:before {
     margin: 29px auto;
   }
   .resume-section .experience .title {
-    font-size: 17px;
+    font-size: 16px;
   }
   .resume-section .experience .caption,
   .resume-section .experience li {
