@@ -44,7 +44,7 @@ h3 {
   text-align: center;
   color: white;
   margin: 0 auto;
-  filter: brightness(1.5);
+  filter: brightness(2);
   z-index: 1;
 }
 
@@ -102,9 +102,14 @@ h3 {
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+  filter: brightness(1.15);
   z-index: 2;
 }
-#waves .fake-theme-toggle {
+.dark-mode #waves {
+  filter: brightness(1);
+}
+
+#control-overlay .fake-theme-toggle {
   position: fixed;
   width: 60px;
   height: 34px;

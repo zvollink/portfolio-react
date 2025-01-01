@@ -1,5 +1,7 @@
 // Context imports.
 import { SectionProvider } from '../contexts/SectionContext';
+import ControlOverlay from '../components/ControlOverlay';
+import { navLinks } from '../constants';
 
 // Component imports.
 import ThemeToggle from '../components/ThemeToggle';
@@ -14,24 +16,14 @@ import Projects from '../components/Projects/Projects';
 import Blogs from '../components/Blogs';
 import Footer from '../components/Footer';
 
-/**
- * Navigation links.
- * @type {Object}
- */
-const links = {
-  'About': { id: 'about-me', href: '#about-me', ref: 'aboutMe' },
-  'Work': { id: 'work', href: '#work', ref: 'work' },
-  'Projects': { id: 'projects', href: '#projects', ref: 'projects' },
-  'Blogs': { id: 'blogs', href: '#blogs', ref: 'blogs' }
-};
-
 export default function Home() {
   return (
     <SectionProvider>
       <ThemeToggle />
       <Hero />
       <Waves />
-      <NavBar links={links} />
+      <ControlOverlay />
+      <NavBar links={navLinks} />
       <AboutMe />
 
       <div id="web-based-resume">
