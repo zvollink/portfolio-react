@@ -109,13 +109,20 @@ h3 {
   filter: brightness(1);
 }
 
-#control-overlay .fake-theme-toggle {
-  position: fixed;
-  width: 60px;
-  height: 34px;
-  top: 40px;
-  right: 40px;
-  cursor: pointer;
+#control-overlay {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+
+  .fake-theme-toggle {
+    position: fixed;
+    width: 60px;
+    height: 34px;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+  }
 }
 
 /**

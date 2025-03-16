@@ -3,11 +3,11 @@ import { socialLinks } from "../constants";
 import { SectionContext } from '../contexts/SectionContext';
 
 const ControlOverlay = () => {
-  const { toggleTheme } = useContext(SectionContext);
+  const { toggleTheme, refs, hideHeroContent } = useContext(SectionContext);
 
   return (
     <div id="control-overlay">
-      <span className='fake-theme-toggle' aria-label='Fake theme toggle' onClick={toggleTheme}></span>
+      <span className={hideHeroContent ? 'fake-theme-toggle hidden' : 'fake-theme-toggle'} ref={refs.content} aria-label='Fake theme toggle' onClick={toggleTheme}></span>
     </div>
   );
 };
