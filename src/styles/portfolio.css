@@ -78,7 +78,7 @@ h3 {
   color: var(--accent-color);
 }
 
-#hero #social-links svg {
+.social-links svg {
   position: relative;
   font-size: 36px;
   color: #E5E5E5;
@@ -86,11 +86,11 @@ h3 {
   transition: 0.2s all;
 }
 
-#hero #social-links svg:hover {
+.social-links svg:hover {
   color: var(--accent-color);
 }
 
-#hero #social-links a {
+.social-links a {
   text-decoration: none;
 }
 
@@ -110,10 +110,11 @@ h3 {
 }
 
 #control-overlay {
-  position: relative;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   z-index: 2;
+  pointer-events: none;
 
   .fake-theme-toggle {
     position: fixed;
@@ -122,6 +123,32 @@ h3 {
     top: 40px;
     right: 40px;
     cursor: pointer;
+    pointer-events: all;
+  }
+
+  .fake-social-links {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 70px));
+    display: flex;
+    pointer-events: none;
+
+    &.hidden {
+      display: none;
+    }
+
+    button {
+      display: block;
+      width: 36px;
+      height: 36px;
+      margin: 0 15px;
+      padding: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      pointer-events: all;
+    }
   }
 }
 
@@ -571,6 +598,60 @@ input:checked + .slider:before {
 /**
  * Responsive styles.
  */
+@media screen and (max-width: 1000px) {
+  #control-overlay .fake-social-links {
+    transform: translate(-50%, calc(-50% + 64px));
+
+    button {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+@media screen and (max-width: 680px) {
+  #control-overlay .fake-social-links {
+    transform: translate(-50%, calc(-50% + 59px));
+
+    button {
+      width: 27px;
+      height: 27px;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  #control-overlay .fake-social-links {
+    transform: translate(-50%, calc(-50% + 65px));
+
+    button {
+      margin: 0 10px;
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  #control-overlay .fake-social-links {
+    transform: translate(-50%, calc(-50% + 55px));
+
+    button {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+@media screen and (max-width: 401px) {
+  #control-overlay .fake-social-links button {
+    margin: 0 8px;
+  }
+}
+@media screen and (max-width: 380px) {
+  #control-overlay .fake-social-links {
+    transform: translate(-50%, calc(-50% + 64px));
+
+    button {
+      margin: 0 6px;
+    }
+  }
+}
+
 @media screen and (max-width: 1389px) {
   #about-me .portrait .headshot-container {
     scale: 0.9;
@@ -578,7 +659,7 @@ input:checked + .slider:before {
   #projects .experience {
     justify-content: center;
   }
-#blogs.resume-section .experience {
+  #blogs.resume-section .experience {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -646,7 +727,7 @@ input:checked + .slider:before {
   #hero .content p .bold {
     font-size: 16px;
   }
-  #hero #social-links svg {
+  .social-links svg {
     font-size: 32px;
   }
   #navbar {
@@ -729,7 +810,7 @@ input:checked + .slider:before {
   #hero .content p .bold {
     font-size: 15px;
   }
-  #hero #social-links svg {
+  .social-links svg {
     font-size: 27px;
   }
   #about-me .details {
@@ -738,7 +819,7 @@ input:checked + .slider:before {
   }
 }
 @media screen and (max-width: 600px) {
-  #hero #social-links svg {
+  .social-links svg {
     margin: 0 10px;
   }
   #navbar {
@@ -796,11 +877,12 @@ input:checked + .slider:before {
   }
   #hero .content p {
     font-size: 12px;
+    min-height: 53px;
   }
   #hero .content p .bold {
     font-size: 13px;
   }
-  #hero #social-links svg {
+  .social-links svg {
     font-size: 20px;
   }
   #about-me .portrait .headshot-container {
@@ -824,7 +906,7 @@ input:checked + .slider:before {
   }
 }
 @media screen and (max-width: 401px) {
-  #hero #social-links svg {
+  .social-links svg {
     margin: 0 8px;
   }
   #projects .experience .card-backdrop .hover-info {
@@ -837,7 +919,7 @@ input:checked + .slider:before {
   }
 }
 @media screen and (max-width: 380px) {
-  #hero #social-links svg {
+  .social-links svg {
     margin: 0 6px;
   }
   #projects .experience .card-backdrop .hover-info {
