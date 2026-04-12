@@ -10,7 +10,7 @@ const Projects = () => {
     if (refs.projects.current) {
       updateHeight('projects', refs.projects.current.clientHeight);
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div id="projects" className="resume-section" ref={refs.projects}>

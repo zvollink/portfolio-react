@@ -8,7 +8,7 @@ const Work = () => {
     if (refs.work.current) {
       updateHeight('work', refs.work.current.clientHeight + refs.work.current.clientHeight * 0.5);
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div id="work" className="resume-section" ref={refs.work}>

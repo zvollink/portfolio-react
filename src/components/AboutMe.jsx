@@ -10,7 +10,7 @@ const AboutMe = () => {
     if (refs.aboutMe.current) {
       updateHeight('aboutMe', refs.aboutMe.current.clientHeight);
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div id="about-me" ref={refs.aboutMe}>

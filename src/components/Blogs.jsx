@@ -10,7 +10,7 @@ const Blogs = () => {
     if (refs.blogs.current) {
       updateHeight('blogs', refs.blogs.current.clientHeight * 2);
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div id="blogs" className="resume-section" ref={refs.blogs}>
@@ -19,12 +19,12 @@ const Blogs = () => {
       <span className="experience">
         <a href="https://bitsbox.com/blog/bitsbox-builds-a-weather-app" target="_blank" rel='noreferrer' className="blog-card">
           <div className="blog-card-image-container">
-          <img alt="Blog article photo" src={BlogBitsboxWeather} className="fit" />
+          <img alt="Bitsbox builds a weather app" src={BlogBitsboxWeather} className="fit" />
           </div>Bitsbox Builds a Weather App!
         </a>
         <a href="https://bitsbox.com/blog/goodbye-scrolling-hello-search" target="_blank" rel="noreferrer" className="blog-card">
           <div className="blog-card-image-container">
-            <img alt="Blog article photo" src={BlogGoodbyeScrolling} className="fit" />
+            <img alt="Goodbye scrolling, hello search" src={BlogGoodbyeScrolling} className="fit" />
           </div>Goodbye scrolling (and scrolling). Helloooo SEARCH!
         </a>
       </span>
