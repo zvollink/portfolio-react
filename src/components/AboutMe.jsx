@@ -35,8 +35,8 @@ const AboutMe = () => {
         <span id="download-resume-container">
           <a
             id="download-resume-button"
-            href="/assets/resume/Zach_Vollink_Resume_2024.pdf"
-            download="Zach_Vollink_Resume_2024.pdf"
+            href="/assets/resume/Zach_Vollink_Resume_2026.pdf"
+            download="Zach_Vollink_Resume_2026.pdf"
             title="Click to download my resume!"
           >
             <FontAwesomeIcon icon={['fas', 'download']} />

@@ -33,9 +33,8 @@ export const navLinks = {
  * @type {Object}
  */
 export const tools = {
-  'javascript': { title: 'JavaScript', icon: '' },
-  'jquery': { title: 'jQuery', icon: '' },
   'react': { title: 'React', icon: '' },
+  'javascript': { title: 'JavaScript', icon: '' },
   'reactnative': { title: 'React Native', icon: '' },
   'html': { title: 'HTML', icon: '' },
   'css': { title: 'CSS', icon: '' },
@@ -43,6 +42,8 @@ export const tools = {
   'tailwind': { title: 'Tailwind CSS', icon: '' },
   'python': { title: 'Python', icon: '' },
   'php': { title: 'PHP', icon: '' },
+  'redux': { title: 'Redux', icon: '' },
+  'axios': { title: 'Axios', icon: '' },
   'ajax': { title: 'AJAX', icon: '' },
   'nodejs': { title: 'Node.js', icon: '' },
   'bash': { title: 'Bash/shell', icon: '' },
@@ -91,6 +92,11 @@ export const projectsList = {
     href: 'https://subscribe.bitsbox.com/',
     title: 'Bitsbox Store',
     description: 'Designed and developed the Bitsbox Store page, creating a visually appealing and user-friendly interface optimized for desktop and mobile devices. Collaborated with the marketing team to align the page\'s design with campaign goals, driving higher engagement and conversions.'
+  },
+  'woodwork-by-case': {
+    href: 'https://woodworkbycase.com/',
+    title: 'Woodwork by Case',
+    description: 'Put together a portfolio and inquiry site for Case Vollink, a custom carpenter based in Fort Worth, Texas. The site features a gallery showcasing 20+ client and original woodworking projects with lightbox functionality, a contact form with file upload for project references, and a mobile-responsive layout.'
   },
   'skoolie-locker-rentals': {
     href: 'https://skoolielockers.com/',

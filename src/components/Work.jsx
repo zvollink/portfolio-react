@@ -15,6 +15,19 @@ const Work = () => {
       <h4>Work</h4>
 
       <span className="experience" style={{ paddingTop: 0 }}>
+        <span className="title">State of Michigan - DTMB</span>
+        <span className="caption">Senior Frontend React Engineer &bull; December 2024 - Present &bull; Grand Rapids/Lansing, MI</span>
+        <ul>
+          <li><span className="bold">Architect and develop production React applications</span> across multiple enterprise-scale projects serving Michigan state agencies and their constituents, maintaining high standards for performance, accessibility, and code quality.</li>
+          <li><span className="bold">Manage sprint workflows and frontend-backend coordination</span> in Azure DevOps within an Agile delivery environment, navigating complex dependency chains across distributed teams.</li>
+          <li><span className="bold">Established as the go-to frontend specialist across teams</span> — sought out for UI architecture decisions and component design, and tapped cross-project to lead accessibility remediation across all CDS applications.</li>
+          <li><span className="bold">Built a shared react-select wrapper component</span> — fully ADA compliant and styled to Digital Guidelines specs — standardizing Autocomplete and Multiselect implementations across all CDS projects and resolving long-standing accessibility gaps.</li>
+          <li><span className="bold">Mentor a junior frontend developer</span> through code reviews and pair programming, establishing frontend best practices adopted across teams — resulting in a developer who now independently champions code quality standards in meetings and architecture discussions.</li>
+          <li><span className="bold">Pushed to formalize frontend development guidelines</span> across the department, advocating for dedicated frontend hiring and higher engineering standards on a team with limited frontend specialization.</li>
+        </ul>
+      </span>
+
+      <span className="experience" style={{ marginTop: 20 }}>
         <span className="title">Bitsbox</span>
         <span className="caption">Frontend Engineer &bull; November 2016 - July 2024 &bull; Boulder, CO</span>
         <ul>

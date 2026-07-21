@@ -525,12 +525,17 @@ input:checked + .slider:before {
   background: url(../assets/bitsbox-storepage.jpg);
   background-size: 100%;
 }
+#projects .experience .card-backdrop.woodwork-by-case {
+  background: url(../assets/woodwork-by-case.jpg);
+  background-size: 100%;
+}
 #projects .experience .card-backdrop.skoolie-locker-rentals {
   background: url(../assets/skoolie-locker-rentals.jpg);
   background-size: 100%;
 }
 #projects .experience .card-backdrop.bitsbox .description,
 #projects .experience .card-backdrop.bitsbox-store .description,
+#projects .experience .card-backdrop.woodwork-by-case .description,
 #projects .experience .card-backdrop.skoolie-locker-rentals .description {
   font-size: 14px;
 }
